@@ -67,7 +67,7 @@ Dernière version sur **[Releases](https://github.com/Apnkk/Z-FILES/releases)** 
 ```
 
 ```
-┌─────────────┐      WiFi local       ┌─────────────┐
+┌─────────────┐      WiFi local        ┌─────────────┐
 │  Téléphone  │  ◄──────────────────►  │     PC      │
 │ /send       │      port 4789         │  Dashboard  │
 │ /receive    │                        │             │
