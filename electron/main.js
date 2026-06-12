@@ -6,6 +6,7 @@ import {
   nativeImage,
   shell,
   ipcMain,
+  screen,
 } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -84,12 +85,31 @@ function focusMainWindow() {
   mainWindow.focus();
 }
 
+function getWindowBounds() {
+  const { workArea } = screen.getPrimaryDisplay();
+  const maxWidth = Math.floor(workArea.width * 0.92);
+  const maxHeight = Math.floor(workArea.height * 0.92);
+
+  const width = Math.min(1920, maxWidth);
+  const height = Math.min(1000, maxHeight);
+  const minWidth = Math.min(900, maxWidth);
+  const minHeight = Math.min(580, maxHeight);
+
+  return {
+    width,
+    height,
+    minWidth,
+    minHeight,
+    x: workArea.x + Math.round((workArea.width - width) / 2),
+    y: workArea.y + Math.round((workArea.height - height) / 2),
+  };
+}
+
 function createWindow() {
+  const bounds = getWindowBounds();
+
   mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1000,
-    minWidth: 1200,
-    minHeight: 740,
+    ...bounds,
     show: false,
     frame: false,
     thickFrame: false,
@@ -146,10 +166,15 @@ function createWindow() {
   });
 }
 
+function getOutboxDir() {
+  return path.join(app.getPath("userData"), "outbox");
+}
+
 async function bootServer() {
   serverInfo = await startServer({
     root: getAppRoot(),
     receivedDir: getReceivedDir(),
+    outboxDir: getOutboxDir(),
     port: PORT,
     quiet: true,
   });

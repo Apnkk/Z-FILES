@@ -5,19 +5,52 @@ export function formatSize(bytes) {
 }
 
 export function getFileKind(name) {
-  if (/\.(jpe?g|png|gif|webp|heic|bmp|svg)$/i.test(name)) return "image";
-  if (/\.(mp4|mov|webm|mkv|avi)$/i.test(name)) return "video";
-  if (/\.(mp3|wav|ogg|flac|m4a)$/i.test(name)) return "audio";
-  if (/\.pdf$/i.test(name)) return "pdf";
+  const base = String(name).split("/").pop() || name;
+  if (/\.(jpe?g|png|gif|webp|heic|bmp)$/i.test(base)) return "image";
+  if (/\.svg$/i.test(base)) return "image";
+  if (/\.(mp4|mov|webm|mkv|avi)$/i.test(base)) return "video";
+  if (/\.(mp3|wav|ogg|flac|m4a)$/i.test(base)) return "audio";
+  if (/\.pdf$/i.test(base)) return "pdf";
+  if (/\.(md|markdown|mdx)$/i.test(base)) return "markdown";
+  if (/\.(html?)$/i.test(base)) return "html";
+  if (/\.(txt|log|csv)$/i.test(base)) return "text";
+  if (/\.(json|js|mjs|cjs|ts|tsx|jsx|css|scss|less|xml|yaml|yml|toml|ini|py|rb|go|rs|java|c|cpp|h|hpp|sh|bat|ps1|sql)$/i.test(base)) {
+    return "code";
+  }
+  if (/\.(zip|rar|7z|tar|gz|tgz|bz2)$/i.test(base)) return "archive";
   return "file";
 }
 
 export function getFileIcon(name) {
   const kind = getFileKind(name);
-  const icons = { image: "🖼", video: "🎬", audio: "🎵", pdf: "📄", file: "📎" };
+  const icons = {
+    image: "🖼",
+    video: "🎬",
+    audio: "🎵",
+    pdf: "📄",
+    markdown: "📝",
+    html: "🌐",
+    text: "📃",
+    code: "💻",
+    archive: "🗜",
+    file: "📎",
+  };
   return icons[kind] ?? icons.file;
 }
 
 export function isImageFile(file) {
-  return file.type?.startsWith("image/") || getFileKind(file.name) === "image";
+  const name = file.webkitRelativePath || file.name;
+  return file.type?.startsWith("image/") || getFileKind(name) === "image";
+}
+
+export function uploadDisplayName(file) {
+  return file.webkitRelativePath || file.name;
+}
+
+export function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }

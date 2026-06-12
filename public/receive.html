@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#030303">
+  <link rel="icon" href="/logo.png" type="image/png">
+  <title>Z-Files — Recevoir</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="page-send page-receive">
+  <div class="send-bg" aria-hidden="true">
+    <div class="send-orb so1"></div>
+    <div class="send-orb so2"></div>
+  </div>
+
+  <header class="send-header anim-fade-down">
+    <img class="logo-img logo-img-sm anim-pulse-glow" src="/logo.png" alt="" width="34" height="34">
+    <div>
+      <div class="logo">Z<span>-Files</span></div>
+      <p class="tagline">Recevoir depuis le PC</p>
+    </div>
+  </header>
+
+  <nav class="mobile-tabs anim-fade-down">
+    <a href="/send" class="mobile-tab">Envoyer</a>
+    <a href="/receive" class="mobile-tab is-active">Recevoir</a>
+  </nav>
+
+  <main class="send-main receive-main">
+    <div id="receive-empty" class="receive-empty" hidden>
+      <div class="receive-empty-icon">📡</div>
+      <p>Aucun fichier en attente</p>
+      <p class="hint">Demande au PC d'envoyer des fichiers vers ton téléphone</p>
+    </div>
+    <div id="receive-grid" class="receive-grid"></div>
+  </main>
+
+  <div id="receive-lightbox" class="receive-lightbox" hidden>
+    <button type="button" class="receive-lightbox-close" id="receive-lightbox-close" aria-label="Fermer">×</button>
+    <div class="receive-lightbox-media" id="receive-lightbox-media"></div>
+    <div class="receive-lightbox-bar">
+      <span id="receive-lightbox-name"></span>
+      <div class="receive-lightbox-actions">
+        <a class="btn btn-primary btn-sm" id="receive-lightbox-dl" download>Télécharger</a>
+        <button type="button" class="btn btn-outline-danger btn-sm" id="receive-lightbox-del">Retirer</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/app-receive.js"></script>
+</body>
+</html>

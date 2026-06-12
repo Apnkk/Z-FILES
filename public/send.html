@@ -23,17 +23,48 @@
     </div>
   </header>
 
+  <nav class="mobile-tabs anim-fade-down">
+    <a href="/send" class="mobile-tab is-active">Envoyer</a>
+    <a href="/receive" class="mobile-tab">Recevoir</a>
+  </nav>
+
   <main class="send-main">
     <form id="upload-form" class="send-card anim-scale-in" enctype="multipart/form-data">
-      <input type="file" id="file-input" name="files" multiple accept="image/*,video/*,audio/*,*/*" hidden>
-
       <div class="drop-area" id="drop-area">
         <div class="drop-ring" aria-hidden="true">
           <div class="drop-ring-pulse"></div>
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
         </div>
         <p class="drop-title">Choisir des fichiers</p>
-        <p class="drop-sub">Photos, vidéos, documents…</p>
+        <p class="drop-sub">Fichiers, ZIP, dossiers, photos…</p>
+      </div>
+
+      <div class="send-quick-actions send-quick-actions-4">
+        <button type="button" class="send-quick-btn send-quick-photo" id="btn-camera">
+          <span class="send-quick-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </span>
+          <span class="send-quick-label">Photo</span>
+        </button>
+        <button type="button" class="send-quick-btn send-quick-flash" id="btn-flash">
+          <span class="send-quick-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </span>
+          <span class="send-quick-label">Flash</span>
+          <span class="send-quick-hint">Direct</span>
+        </button>
+        <button type="button" class="send-quick-btn" id="btn-folder">
+          <span class="send-quick-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <span class="send-quick-label">Dossier</span>
+        </button>
+        <button type="button" class="send-quick-btn" id="btn-paste">
+          <span class="send-quick-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+          </span>
+          <span class="send-quick-label">Coller</span>
+        </button>
       </div>
 
       <ul id="queue" class="queue" hidden></ul>
@@ -54,6 +85,13 @@
     <p id="status" class="status" hidden></p>
     <div id="success-burst" class="success-burst" hidden aria-hidden="true"></div>
   </main>
+
+  <div class="send-file-inputs" aria-hidden="true">
+    <input type="file" id="file-input" name="files" multiple accept="image/*,video/*,audio/*,.zip,.rar,.7z,.tar,.gz,application/zip,application/x-zip-compressed,*/*">
+    <input type="file" id="folder-input" webkitdirectory directory multiple>
+    <input type="file" id="camera-input" accept="image/*" capture="environment">
+    <input type="file" id="flash-input" accept="image/*" capture="environment">
+  </div>
 
   <script type="module" src="/app-send.js"></script>
 </body>
