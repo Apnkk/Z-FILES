@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License" />
 </p>
 
-## 📥 Téléchargement
+## Téléchargement
 
 Télécharge la dernière version sur **[Releases](https://github.com/Apnkk/Z-FILES/releases)** :
 
