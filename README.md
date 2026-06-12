@@ -15,18 +15,13 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License" />
 </p>
 
----
-
 ## 📥 Téléchargement
 
 Télécharge la dernière version sur **[Releases](https://github.com/Apnkk/Z-FILES/releases)** :
 
-| Fichier | Description | Taille |
-|---------|-------------|--------|
 | **Setup** (Recommandé) | Installateur Windows | ~82 MB |
 | **Portable** | Sans installation | ~82 MB |
 
----
 
 ## Installation
 
@@ -45,22 +40,18 @@ Télécharge la dernière version sur **[Releases](https://github.com/Apnkk/Z-FI
 
 > **Prérequis :** PC et téléphone sur le **même réseau WiFi** (4G désactivée sur le téléphone).
 
----
+## Fonctionnalités
 
-## ✨ Fonctionnalités
+- **Transfert WiFi local** — Aucune donnée envoyée sur Internet
+- **QR code** — Connexion en un scan depuis le téléphone
+- **Interface espace** — Fichiers affichés comme des points flottants
+- **Aperçu instantané** — Images, vidéos et PDF au survol
+- **Temps réel** — Les fichiers apparaissent dès l'envoi
+- **Mises à jour auto** — Notification quand une nouvelle version est disponible
+- **App native** — Fenêtre Electron avec barre de titre custom et animations
+- **Dossier local** — Fichiers reçus dans `%APPDATA%\z-files\received\`
 
-- 📡 **Transfert WiFi local** — Aucune donnée envoyée sur Internet
-- 📲 **QR code** — Connexion en un scan depuis le téléphone
-- 🌌 **Interface espace** — Fichiers affichés comme des points flottants
-- 👁️ **Aperçu instantané** — Images, vidéos et PDF au survol
-- ⚡ **Temps réel** — Les fichiers apparaissent dès l'envoi
-- 🔄 **Mises à jour auto** — Notification quand une nouvelle version est disponible
-- 🪟 **App native** — Fenêtre Electron avec barre de titre custom et animations
-- 📁 **Dossier local** — Fichiers reçus dans `%APPDATA%\z-files\received\`
-
----
-
-## 📱 Utilisation
+## Utilisation
 
 1. Lance **Z-Files** sur ton PC
 2. Clique sur **Connexion** → QR code + lien affichés
@@ -78,9 +69,7 @@ Télécharge la dernière version sur **[Releases](https://github.com/Apnkk/Z-FI
 
 **Limites :** 500 Mo max / fichier · 20 fichiers max / envoi
 
----
-
-## 🔄 Mises à jour automatiques
+## Mises à jour automatiques
 
 Z-Files vérifie **[GitHub Releases](https://github.com/Apnkk/Z-FILES/releases)** au démarrage, puis toutes les **6 heures**.
 
@@ -92,14 +81,10 @@ Si une nouvelle version est disponible (ex. **v2.0.0**) :
 
 Vérification manuelle : clic droit sur l'icône dans la barre des tâches → **Rechercher une mise à jour…**
 
----
-
 ## Compatibilité
 
 - Windows 10 (64-bit)
 - Windows 11 (64-bit)
-
----
 
 ## Sécurité
 
@@ -110,9 +95,7 @@ Vérification manuelle : clic droit sur l'icône dans la barre des tâches → *
 
 > Windows peut afficher un avertissement SmartScreen au premier lancement (exe non signé). C'est normal sans certificat de signature.
 
----
-
-## 🛠️ Développement
+## Développement
 
 ```bash
 git clone https://github.com/Apnkk/Z-FILES.git
@@ -122,8 +105,6 @@ npm run app      # Lancer en dev
 npm run build    # Générer les .exe dans dist/
 ```
 
-| Commande | Description |
-|----------|-------------|
 | `npm run app` | Application Electron |
 | `npm run build` | Build installateur + portable |
 | `npm start` | Serveur Node seul |
@@ -140,13 +121,9 @@ git push origin main && git push origin v2.0.0
 
 GitHub Actions build et attache les `.exe` à la release automatiquement.
 
----
-
 ## Support
 
 En cas de problème, ouvre une **[issue](https://github.com/Apnkk/Z-FILES/issues)**.
-
----
 
 <p align="center">
   © 2026 Z-Files — Développé avec ❤️ par <a href="https://github.com/Apnkk">Ares</a>
