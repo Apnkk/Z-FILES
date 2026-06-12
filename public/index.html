@@ -100,39 +100,30 @@
   </header>
 
   <aside id="connect-panel" class="connect-panel" hidden>
-    <div class="panel-head anim-stagger" style="--i:0">
-      <div>
-        <h2>Connecter le téléphone</h2>
-        <p class="hint">Même réseau WiFi que ce PC</p>
-      </div>
+    <div class="panel-head">
+      <h2>Connexion tel</h2>
       <button type="button" class="btn btn-icon btn-ghost-icon" id="close-connect" aria-label="Fermer">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
     <div class="connect-body">
-      <div class="qr-wrap anim-stagger" style="--i:1">
-        <div class="qr-tabs" role="tablist" aria-label="QR code">
-          <button type="button" class="qr-tab is-active" id="qr-tab-send" data-page="send">Envoi tel → PC</button>
-          <button type="button" class="qr-tab" id="qr-tab-receive" data-page="receive">Réception PC → tel</button>
-        </div>
-        <div class="qr-scan" aria-hidden="true"></div>
-        <img id="qr" src="/api/qr" alt="QR code" width="176" height="176">
+      <div class="qr-tabs" role="tablist" aria-label="QR code">
+        <button type="button" class="qr-tab is-active" data-page="send">→ PC</button>
+        <button type="button" class="qr-tab" data-page="receive">← Tel</button>
       </div>
-      <ol class="connect-steps anim-stagger" style="--i:2">
-        <li>Scanne le QR avec l'appareil photo</li>
-        <li>Ou copie le lien ci-dessous</li>
-      </ol>
-      <div class="connect-info anim-stagger" style="--i:3">
+      <div class="qr-wrap">
+        <div class="qr-scan" aria-hidden="true"></div>
+        <img id="qr" src="/api/qr" alt="QR code" width="132" height="132">
+      </div>
+      <p class="connect-hint">Scanne le QR · même WiFi</p>
+      <div class="connect-info">
         <label>Réseau <span id="iface-name"></span></label>
-        <code id="upload-url" class="connect-url">…</code>
+        <code id="connect-url" class="connect-url">…</code>
         <div class="connect-btns">
-          <button type="button" class="btn btn-glass btn-sm" id="copy-url">Copier envoi</button>
-          <button type="button" class="btn btn-glass btn-sm" id="copy-receive-url">Copier réception</button>
-          <a id="open-send" class="btn btn-primary btn-sm" href="/send" target="_blank">Ouvrir sur ce PC</a>
+          <button type="button" class="btn btn-glass btn-sm" id="copy-url">Copier</button>
+          <a id="open-send" class="btn btn-primary btn-sm" href="/send" target="_blank">Ouvrir</a>
         </div>
-        <label class="connect-receive-label">Réception tel (PC → phone)</label>
-        <code id="receive-url" class="connect-url">…</code>
-        <p class="hint hint-warn" id="wifi-hint" hidden>Désactive la 4G — reste sur le WiFi maison.</p>
+        <p class="hint hint-warn" id="wifi-hint" hidden>4G off — WiFi maison.</p>
       </div>
     </div>
   </aside>

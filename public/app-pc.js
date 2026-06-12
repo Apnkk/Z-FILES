@@ -493,31 +493,38 @@ async function loadFiles(manual = false) {
   }
 }
 
+let connectInfo = null;
+
+function setConnectPage(page) {
+  if (!connectInfo) return;
+  const url = page === "receive" ? connectInfo.receiveUrl : connectInfo.uploadUrl;
+  document.getElementById("qr").src = `/api/qr?page=${page}&t=${Date.now()}`;
+  document.querySelectorAll(".qr-tab").forEach((tab) => {
+    tab.classList.toggle("is-active", tab.dataset.page === page);
+  });
+  document.getElementById("connect-url").textContent = url;
+  const openBtn = document.getElementById("open-send");
+  openBtn.href = url;
+  openBtn.textContent = page === "receive" ? "Ouvrir réception" : "Ouvrir envoi";
+  connectInfo.activePage = page;
+}
+
 async function loadInfo() {
   const response = await fetch("/api/info");
   const data = await response.json();
 
-  document.getElementById("upload-url").textContent = data.uploadUrl;
-  document.getElementById("receive-url").textContent = data.receiveUrl;
-  document.getElementById("open-send").href = data.uploadUrl;
+  connectInfo = { ...data, activePage: "send" };
 
   const iface = data.interfaces?.[0];
   if (iface) {
-    document.getElementById("iface-name").textContent = `(${iface.name} · port ${data.port})`;
+    document.getElementById("iface-name").textContent = `(${iface.name} · ${data.port})`;
   }
 
-  const refreshQr = (page = "send") => {
-    document.getElementById("qr").src = `/api/qr?page=${page}&t=${Date.now()}`;
-    document.querySelectorAll(".qr-tab").forEach((tab) => {
-      tab.classList.toggle("is-active", tab.dataset.page === page);
-    });
-  };
-
   document.querySelectorAll(".qr-tab").forEach((tab) => {
-    tab.addEventListener("click", () => refreshQr(tab.dataset.page));
+    tab.addEventListener("click", () => setConnectPage(tab.dataset.page));
   });
 
-  refreshQr("send");
+  setConnectPage("send");
   document.getElementById("wifi-hint").hidden = false;
 }
 
@@ -766,13 +773,8 @@ function initUi() {
   });
 
   document.getElementById("copy-url").addEventListener("click", async () => {
-    await navigator.clipboard.writeText(document.getElementById("upload-url").textContent);
-    toast("Lien envoi copié ✓");
-  });
-
-  document.getElementById("copy-receive-url").addEventListener("click", async () => {
-    await navigator.clipboard.writeText(document.getElementById("receive-url").textContent);
-    toast("Lien réception copié ✓");
+    await navigator.clipboard.writeText(document.getElementById("connect-url").textContent);
+    toast("Lien copié ✓");
   });
 }
 
