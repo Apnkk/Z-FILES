@@ -1,0 +1,85 @@
+{
+  "name": "z-files",
+  "version": "1.0.0",
+  "description": "Transfert local téléphone → PC sur le même réseau WiFi",
+  "author": "Ares (Apnkk)",
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "file-transfer",
+    "wifi",
+    "local",
+    "phone",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Apnkk/Z-FILES.git"
+  },
+  "homepage": "https://github.com/Apnkk/Z-FILES#readme",
+  "bugs": {
+    "url": "https://github.com/Apnkk/Z-FILES/issues"
+  },
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "app": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder --win"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.zfiles.app",
+    "productName": "Z-Files",
+    "copyright": "Copyright © 2026 Z-Files",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "server/**/*",
+      "public/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "icon": "assets/icon.png",
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Z-Files",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-Portable-${version}.${ext}"
+    }
+  }
+}

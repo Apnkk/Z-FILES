@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#030303">
+  <link rel="icon" href="/logo.png" type="image/png">
+  <title>Z-Files — Envoyer</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="page-send">
+  <div class="send-bg" aria-hidden="true">
+    <div class="send-orb so1"></div>
+    <div class="send-orb so2"></div>
+  </div>
+
+  <header class="send-header anim-fade-down">
+    <img class="logo-img logo-img-sm anim-pulse-glow" src="/logo.png" alt="" width="34" height="34">
+    <div>
+      <div class="logo">Z<span>-Files</span></div>
+      <p class="tagline">Envoyer vers ton PC</p>
+    </div>
+  </header>
+
+  <main class="send-main">
+    <form id="upload-form" class="send-card anim-scale-in" enctype="multipart/form-data">
+      <input type="file" id="file-input" name="files" multiple accept="image/*,video/*,audio/*,*/*" hidden>
+
+      <div class="drop-area" id="drop-area">
+        <div class="drop-ring" aria-hidden="true">
+          <div class="drop-ring-pulse"></div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        </div>
+        <p class="drop-title">Choisir des fichiers</p>
+        <p class="drop-sub">Photos, vidéos, documents…</p>
+      </div>
+
+      <ul id="queue" class="queue" hidden></ul>
+
+      <div class="progress-wrap" id="progress-wrap" hidden>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+          <div class="progress-shimmer" aria-hidden="true"></div>
+        </div>
+        <span class="progress-label" id="progress-label">Envoi…</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block btn-glow" id="send-btn" disabled>
+        <span class="btn-label">Envoyer sur le PC</span>
+      </button>
+    </form>
+
+    <p id="status" class="status" hidden></p>
+    <div id="success-burst" class="success-burst" hidden aria-hidden="true"></div>
+  </main>
+
+  <script type="module" src="/app-send.js"></script>
+</body>
+</html>

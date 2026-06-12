@@ -17,10 +17,12 @@
 
 ---
 
-## Téléchargement
+## 📥 Téléchargement
 
 Télécharge la dernière version sur **[Releases](https://github.com/Apnkk/Z-FILES/releases)** :
 
+| Fichier | Description | Taille |
+|---------|-------------|--------|
 | **Setup** (Recommandé) | Installateur Windows | ~82 MB |
 | **Portable** | Sans installation | ~82 MB |
 
@@ -45,20 +47,20 @@ Télécharge la dernière version sur **[Releases](https://github.com/Apnkk/Z-FI
 
 ---
 
-## Fonctionnalités
+## ✨ Fonctionnalités
 
-- **Transfert WiFi local** — Aucune donnée envoyée sur Internet
-- **QR code** — Connexion en un scan depuis le téléphone
-- **Interface espace** — Fichiers affichés comme des points flottants
-- **Aperçu instantané** — Images, vidéos et PDF au survol
-- **Temps réel** — Les fichiers apparaissent dès l'envoi
-- **Mises à jour auto** — Notification quand une nouvelle version est disponible
-- **App native** — Fenêtre Electron avec barre de titre custom et animations
-- **Dossier local** — Fichiers reçus dans `%APPDATA%\z-files\received\`
+- 📡 **Transfert WiFi local** — Aucune donnée envoyée sur Internet
+- 📲 **QR code** — Connexion en un scan depuis le téléphone
+- 🌌 **Interface espace** — Fichiers affichés comme des points flottants
+- 👁️ **Aperçu instantané** — Images, vidéos et PDF au survol
+- ⚡ **Temps réel** — Les fichiers apparaissent dès l'envoi
+- 🔄 **Mises à jour auto** — Notification quand une nouvelle version est disponible
+- 🪟 **App native** — Fenêtre Electron avec barre de titre custom et animations
+- 📁 **Dossier local** — Fichiers reçus dans `%APPDATA%\z-files\received\`
 
 ---
 
-## Utilisation
+## 📱 Utilisation
 
 1. Lance **Z-Files** sur ton PC
 2. Clique sur **Connexion** → QR code + lien affichés
@@ -110,7 +112,7 @@ Vérification manuelle : clic droit sur l'icône dans la barre des tâches → *
 
 ---
 
-## Développement
+## 🛠️ Développement
 
 ```bash
 git clone https://github.com/Apnkk/Z-FILES.git
